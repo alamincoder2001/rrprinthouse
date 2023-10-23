@@ -72,6 +72,17 @@ $route['colordelete'] = 'Administrator/Page/colordelete';
 $route['coloredit/(:any)'] = 'Administrator/Page/coloredit/$1';
 $route['colorupdate'] = 'Administrator/Page/colorupdate';
 
+//othercolor
+$route['othercolor']       = 'Administrator/Page/add_othercolor';
+$route['get_othercolor']   = 'Administrator/Page/getOthercolor';
+$route['insertothercolor'] = 'Administrator/Page/insert_othercolor';
+$route['othercolordelete'] = 'Administrator/Page/othercolordelete';
+//bothcolor
+$route['bothcolor']       = 'Administrator/Page/add_bothcolor';
+$route['get_bothcolor']   = 'Administrator/Page/getBothcolor';
+$route['insertbothcolor'] = 'Administrator/Page/insert_bothcolor';
+$route['bothcolordelete'] = 'Administrator/Page/bothcolordelete';
+
 $route['area'] = 'Administrator/Page/area';
 $route['insertarea'] = 'Administrator/Page/insert_area';
 $route['areadelete'] = 'Administrator/Page/areadelete';

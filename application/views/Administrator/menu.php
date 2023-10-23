@@ -362,7 +362,25 @@ if ($module == 'dashboard' or $module == '') {
 						<b class="arrow"></b>
 					</li>
 				<?php endif; ?>
-				<?php if (array_search("size", $access) > -1 || isset($CheckSuperAdmin) || isset($CheckAdmin)) : ?>
+				<?php if (array_search("othercolor", $access) > -1 || isset($CheckSuperAdmin) || isset($CheckAdmin)) : ?>
+					<li class="">
+						<a href="<?php echo base_url(); ?>othercolor">
+							<i class="menu-icon fa fa-caret-right"></i>
+							<span class="menu-text"> Add 2ndColor </span>
+						</a>
+						<b class="arrow"></b>
+					</li>
+				<?php endif; ?>
+				<?php if (array_search("bothcolor", $access) > -1 || isset($CheckSuperAdmin) || isset($CheckAdmin)) : ?>
+					<li class="">
+						<a href="<?php echo base_url(); ?>bothcolor">
+							<i class="menu-icon fa fa-caret-right"></i>
+							<span class="menu-text"> Add BothColor </span>
+						</a>
+						<b class="arrow"></b>
+					</li>
+				<?php endif; ?>
+				<!-- <?php if (array_search("size", $access) > -1 || isset($CheckSuperAdmin) || isset($CheckAdmin)) : ?>
 					<li class="">
 						<a href="<?php echo base_url(); ?>size">
 							<i class="menu-icon fa fa-caret-right"></i>
@@ -370,7 +388,7 @@ if ($module == 'dashboard' or $module == '') {
 						</a>
 						<b class="arrow"></b>
 					</li>
-				<?php endif; ?>
+				<?php endif; ?> -->
 			</ul>
 		</li>
 		<?php endif;?>

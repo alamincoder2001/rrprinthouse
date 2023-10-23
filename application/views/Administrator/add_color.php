@@ -13,6 +13,16 @@
 					<span style="color:red;font-size:15px;">
 				</div>
 			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Amount  </label>
+				<label class="col-sm-1 control-label no-padding-right">:</label>
+				<div class="col-sm-8">
+					<input type="number" step="0.01" min="0" id="amount" name="amount" placeholder="Amount" value="<?php echo set_value('amount'); ?>" class="col-xs-10 col-sm-4" />
+					<span id="msg"></span>
+					<?php echo form_error('amount'); ?>
+					<span style="color:red;font-size:15px;">
+				</div>
+			</div>
 
 			<div class="form-group">
 				<label class="col-sm-3 control-label no-padding-right" for="form-field-1"></label>
@@ -55,7 +65,8 @@
 						</label>
 					</th>
 					<th>SL No</th>
-					<th>Brand Name</th>
+					<th>Color Name</th>
+					<th>Amount</th>
 					<th class="hidden-480">Description</th>
 
 					<th>Action</th>
@@ -80,6 +91,7 @@
 
 						<td><?php echo $i++; ?></td>
 						<td><a href="#"><?php echo $row->color_name; ?></a></td>
+						<td class="hidden-480"><?php echo $row->amount; ?></td>
 						<td class="hidden-480"><?php echo $row->color_name; ?></td>
 						<td>
 							<div class="hidden-sm hidden-xs action-buttons">
@@ -111,11 +123,16 @@
 <script type="text/javascript">
 	function submit(){
 		var colorname= $("#colorname").val();
+		var amount= $("#amount").val();
 		if(colorname==""){
 			$("#colorname").css("border-color","red");
 			return false;
 		}
-		var inputdata = 'colorname='+colorname;
+		if(amount==""){
+			$("#amount").css("border-color","red");
+			return false;
+		}
+		var inputdata = 'colorname='+colorname+'&amount='+amount;
 		var urldata = "<?php echo base_url();?>insertcolor";
 		$.ajax({
 			type: "POST",
@@ -127,7 +144,6 @@
 				}else{
 					alert("Save Success");
 					location.reload();
-					document.getElementById("colorname").value='';
 				}
 			}
 		});

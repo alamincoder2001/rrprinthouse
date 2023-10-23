@@ -8,13 +8,13 @@ $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
 	
-	'username' => 'dewbxcak_admin3',
-	'password' => ')&@)nVVDO$]_',
+	'username' => 'root',
+	'password' => '',
 	'database' => 'dewbxcak_rrprinthouse',
-	
-// 	'username' => 'root',
-// 	'password' => '',
-// 	'database' => 'rrprint',
+
+	// 'username' => 'dewbxcak_admin3',
+	// 'password' => ')&@)nVVDO$]_',
+	// 'database' => 'dewbxcak_rrprinthouse',
 		
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',

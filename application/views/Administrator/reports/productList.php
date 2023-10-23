@@ -1,4 +1,19 @@
 <div id="productList">
+    <div class="row" style="border-bottom: 1px solid #ccc;padding: 5px 0;">
+        <div class="col-md-12">
+            <form class="form-inline" @submit.prevent="getProducts">
+                <div class="form-group">
+                    <select class="form-control" style="padding: 0 20px 0 5px;" v-model="searchType">
+                        <option value="false">Is Product</option>
+                        <option value="true">Is Service</option>
+                    </select>
+                </div>
+                <div class="form-group" style="margin-top: -5px;">
+                    <input type="submit" value="Search">
+                </div>
+            </form>
+        </div>
+    </div>
     <div style="display:none;" v-bind:style="{display: products.length > 0 ? '' : 'none'}">
         <div class="row">
             <div class="col-md-12">
@@ -44,6 +59,7 @@
         el: '#productList',
         data() {
             return {
+                searchType:"false",
                 products: [],
             }
         },
@@ -52,7 +68,7 @@
         },
         methods: {
             getProducts() {
-                axios.get('/get_products').then(res => {
+                axios.post('/get_products',{isService:this.searchType}).then(res => {
                     this.products = res.data;
                 })
             },
@@ -78,7 +94,7 @@
                 mywindow.document.write(`
 					<?php $this->load->view('Administrator/reports/reportHeader.php'); ?>
 				`);
-                
+
                 mywindow.document.body.innerHTML += reportContent;
 
                 mywindow.focus();

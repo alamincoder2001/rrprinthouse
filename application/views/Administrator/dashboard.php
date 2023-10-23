@@ -376,8 +376,36 @@ if ($module == 'dashboard' or $module == '') { ?>
 						</div>
 					</div>
 				<?php endif; ?>
+				<?php if (array_search("othercolor", $access) > -1 || isset($CheckSuperAdmin) || isset($CheckAdmin)) : ?>
+					<div class="col-md-2 col-xs-6 ">
+						<div class="col-md-12 section20">
+							<a href="<?php echo base_url(); ?>othercolor">
+								<div class="logo">
+									<i class="menu-icon fa fa-adjust"></i>
+								</div>
+								<div class="textModule">
+									Add 2ndColor
+								</div>
+							</a>
+						</div>
+					</div>
+				<?php endif; ?>
+				<?php if (array_search("bothcolor", $access) > -1 || isset($CheckSuperAdmin) || isset($CheckAdmin)) : ?>
+					<div class="col-md-2 col-xs-6 ">
+						<div class="col-md-12 section20">
+							<a href="<?php echo base_url(); ?>bothcolor">
+								<div class="logo">
+									<i class="menu-icon fa fa-adjust"></i>
+								</div>
+								<div class="textModule">
+									Add BothColor
+								</div>
+							</a>
+						</div>
+					</div>
+				<?php endif; ?>
 
-				<?php if (array_search("size", $access) > -1 || isset($CheckSuperAdmin) || isset($CheckAdmin)) : ?>
+				<!-- <?php if (array_search("size", $access) > -1 || isset($CheckSuperAdmin) || isset($CheckAdmin)) : ?>
 					<div class="col-md-2 col-xs-6 ">
 						<div class="col-md-12 section20">
 							<a href="<?php echo base_url(); ?>size">
@@ -390,7 +418,7 @@ if ($module == 'dashboard' or $module == '') { ?>
 							</a>
 						</div>
 					</div>
-				<?php endif; ?>
+				<?php endif; ?> -->
 				
 				
 				<?php if($this->session->userdata('BRANCHid') == 1 && (isset($CheckSuperAdmin) || isset($CheckAdmin))) : ?>

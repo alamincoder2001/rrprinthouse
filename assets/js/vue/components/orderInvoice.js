@@ -33,9 +33,11 @@ const orderInvoice = Vue.component('order-invoice', {
                                 <tr>
                                     <td>Sl.</td>
                                     <td>Description</td>
-                                    <td>Color</td>
+                                    <td>Product</td>
+                                    <td>1<sup>st</sup>Color</td>
+                                    <td>2<sup>nd</sup>Color</td>
+                                    <td>Both Color</td>
                                     <td>Size</td>
-                                    <td>Note</td>
                                     <td>Quantity</td>
                                     <td>Rate</td>
                                     <td>Total</td>
@@ -44,10 +46,12 @@ const orderInvoice = Vue.component('order-invoice', {
                             <tbody>
                                 <tr v-for="(product, sl) in cart">
                                     <td>{{ sl + 1 }}</td>
+                                    <td>{{ product.note ?? '--' }}</td>
                                     <td>{{ product.details }}</td>
                                     <td>{{ product.color_name ?? '--' }}</td>
+                                    <td>{{ product.othercolor_name ?? '--' }}</td>
+                                    <td>{{ product.bothcolor_name ?? '--' }}</td>
                                     <td>{{ product.size_name ?? '--' }}</td>
-                                    <td>{{ product.note ?? '--' }}</td>
                                     <td>{{ product.SaleDetails_TotalQuantity }}</td>
                                     <td>{{ product.SaleDetails_Rate }}</td>
                                     <td align="right">{{ product.SaleDetails_TotalAmount }}</td>

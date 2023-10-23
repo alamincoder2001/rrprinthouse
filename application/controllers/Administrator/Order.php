@@ -118,6 +118,9 @@ class Order extends CI_Controller {
                     'SaleDetails_Tax' => $cartProduct->vat,
                     'SaleDetails_TotalAmount' => $cartProduct->total,
                     'note' => $cartProduct->note,
+                    'color' => $cartProduct->color,
+                    'othercolor' => $cartProduct->othercolor,
+                    'bothcolor' => $cartProduct->bothcolor,
                     'Status' => 'p',
                     'AddBy' => $this->session->userdata("FullName"),
                     'AddTime' => date('Y-m-d H:i:s'),
@@ -225,6 +228,9 @@ class Order extends CI_Controller {
                     'SaleDetails_Tax' => $cartProduct->vat,
                     'SaleDetails_TotalAmount' => $cartProduct->total,
                     'note' => $cartProduct->note,
+                    'color' => $cartProduct->color,
+                    'othercolor' => $cartProduct->othercolor,
+                    'bothcolor' => $cartProduct->bothcolor,
                     'Status' => 'p',
                     'AddBy' => $this->session->userdata("FullName"),
                     'AddTime' => date('Y-m-d H:i:s'),
@@ -342,13 +348,17 @@ class Order extends CI_Controller {
                     concat(p.Product_Code, ' - ', p.Product_Name) as details,
                     pc.ProductCategory_Name,
                     c.color_name,
+                    oc.color_name as othercolor_name,
+                    bc.color_name as bothcolor_name,
                     s.size_name,
                     u.Unit_Name
                 from tbl_saledetails sd
                 join tbl_product p on p.Product_SlNo = sd.Product_IDNo
                 join tbl_productcategory pc on pc.ProductCategory_SlNo = p.ProductCategory_ID
                 join tbl_unit u on u.Unit_SlNo = p.Unit_ID
-                left join tbl_color c on c.color_SiNo = p.color
+                left join tbl_color c on c.color_SiNo = sd.color
+                left join tbl_othercolor oc on oc.color_SiNo = sd.othercolor
+                left join tbl_bothcolor bc on bc.color_SiNo = sd.bothcolor
                 left join tbl_size s on s.size_SiNo = p.size
                 where sd.SaleMaster_IDNo = ?
                 " . ($data->Status == '' ? "and sd.Status != 'd'" : " and sd.Status = '$data->Status'") . "

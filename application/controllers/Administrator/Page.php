@@ -671,6 +671,7 @@ class Page extends CI_Controller
         } else {
             $data = array(
                 "color_name"      => $this->input->post('colorname', TRUE),
+                "amount"      => $this->input->post('amount', TRUE),
                 "status"          => 'a'
 
             );
@@ -723,7 +724,8 @@ class Page extends CI_Controller
         } else {
             $fld = 'color_SiNo';
             $data = array(
-                "color_name" => $this->input->post('colorname', TRUE)
+                "color_name" => $this->input->post('colorname', TRUE),
+                "amount" => $this->input->post('amount', TRUE)
             );
             if ($this->mt->update_data("tbl_color", $data, $id, $fld)) {
                 $msg = true;
@@ -1008,23 +1010,6 @@ class Page extends CI_Controller
         $this->load->view('Administrator/index', $data);
     }
 
-    public function getMotherApiContent()
-    {
-        $url = 'http://linktechbd.com/motherapi/index.php';
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_HTTPGET, true);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $response_json = curl_exec($ch);
-        $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        curl_close($ch);
-
-        if ($code == '200') {
-            echo $response_json;
-        } else {
-            echo '';
-        }
-    }
-
     // Size 
     public function add_size()
     {
@@ -1126,6 +1111,123 @@ class Page extends CI_Controller
                 $msg = true;
                 echo json_encode($msg);
             }
+        }
+    }
+
+    // other color
+    public function add_othercolor()
+    {
+        $access = $this->mt->userAccess();
+        if (!$access) {
+            redirect(base_url());
+        }
+        $data['title'] = "Add 2nd Side Color";
+        $data['content'] = $this->load->view('Administrator/add_othercolor', $data, TRUE);
+        $this->load->view('Administrator/index', $data);
+    }
+
+    public function getOthercolor()
+    {
+        $result = $this->db->query("SELECT * FROM `tbl_othercolor` WHERE `status` = 'a'")->result();
+        echo json_encode($result);
+    }
+
+    public function insert_othercolor()
+    {
+        $data = json_decode($this->input->raw_input_stream);
+        $othercolor = array(
+            "color_name" => $data->othercolor->color_name,
+            "amount" => $data->othercolor->amount,
+            "status"               => 'a',
+        );
+        if (empty($data->othercolor->color_SiNo)) {
+            $this->db->insert('tbl_othercolor', $othercolor);
+            $success = 'Save Success';
+        } else {
+            $this->db->where('color_SiNo', $data->othercolor->color_SiNo);
+            $this->db->update('tbl_othercolor', $othercolor);
+            $success = 'Update Success';
+        }
+        echo json_encode($success);
+    }
+
+    public function othercolordelete()
+    {
+        $data = json_decode($this->input->raw_input_stream);
+        $othercolor = array(
+            "status" => 'd'
+        );
+        $this->db->where('color_SiNo', $data->keyId);
+        $this->db->update('tbl_othercolor', $othercolor);
+        $success = 'Delete Success';
+        echo json_encode($success);
+    }
+    
+    // both color
+    public function add_bothcolor()
+    {
+        $access = $this->mt->userAccess();
+        if (!$access) {
+            redirect(base_url());
+        }
+        $data['title'] = "Add Both Side Color";
+        $data['content'] = $this->load->view('Administrator/add_bothcolor', $data, TRUE);
+        $this->load->view('Administrator/index', $data);
+    }
+
+    public function getBothcolor()
+    {
+        $result = $this->db->query("SELECT * FROM `tbl_bothcolor` WHERE `status` = 'a'")->result();
+        echo json_encode($result);
+    }
+
+    public function insert_bothcolor()
+    {
+        $data = json_decode($this->input->raw_input_stream);
+        $bothcolor = array(
+            "color_name" => $data->bothcolor->color_name,
+            "amount" => $data->bothcolor->amount,
+            "status"               => 'a',
+        );
+        if (empty($data->bothcolor->color_SiNo)) {
+            $this->db->insert('tbl_bothcolor', $bothcolor);
+            $success = 'Save Success';
+        } else {
+            $this->db->where('color_SiNo', $data->bothcolor->color_SiNo);
+            $this->db->update('tbl_bothcolor', $bothcolor);
+            $success = 'Update Success';
+        }
+        echo json_encode($success);
+    }
+
+    public function bothcolordelete()
+    {
+        $data = json_decode($this->input->raw_input_stream);
+        $bothcolor = array(
+            "status" => 'd'
+        );
+        $this->db->where('color_SiNo', $data->keyId);
+        $this->db->update('tbl_bothcolor', $bothcolor);
+        $success = 'Delete Success';
+        echo json_encode($success);
+    }
+
+
+    //mother api get
+    public function getMotherApiContent()
+    {
+        $url = 'http://linktechbd.com/motherapi/index.php';
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_HTTPGET, true);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response_json = curl_exec($ch);
+        $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+
+        if ($code == '200') {
+            echo $response_json;
+        } else {
+            echo '';
         }
     }
 }
