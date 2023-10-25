@@ -34,9 +34,9 @@ const salesInvoice = Vue.component('sales-invoice', {
                                     <td>Sl.</td>
                                     <td>Description</td>
                                     <td>Product</td>
-                                    <td>1Side Color</td>
-                                    <td>2Side Color</td>
-                                    <td>Both Side Color</td>
+                                    <td>One Side</td>
+                                    <td>Two Side</td>
+                                    <td>Both Side</td>
                                     <td>Size</td>
                                     <td>Quantity</td>
                                     <td>Rate</td>

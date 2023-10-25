@@ -357,7 +357,7 @@ if ($module == 'dashboard' or $module == '') {
 					<li class="">
 						<a href="<?php echo base_url(); ?>color">
 							<i class="menu-icon fa fa-caret-right"></i>
-							<span class="menu-text"> Add Color </span>
+							<span class="menu-text"> One Side Color </span>
 						</a>
 						<b class="arrow"></b>
 					</li>
@@ -366,7 +366,7 @@ if ($module == 'dashboard' or $module == '') {
 					<li class="">
 						<a href="<?php echo base_url(); ?>othercolor">
 							<i class="menu-icon fa fa-caret-right"></i>
-							<span class="menu-text"> Add 2ndColor </span>
+							<span class="menu-text"> Two Side Color </span>
 						</a>
 						<b class="arrow"></b>
 					</li>
@@ -375,7 +375,7 @@ if ($module == 'dashboard' or $module == '') {
 					<li class="">
 						<a href="<?php echo base_url(); ?>bothcolor">
 							<i class="menu-icon fa fa-caret-right"></i>
-							<span class="menu-text"> Add BothColor </span>
+							<span class="menu-text"> Both Side Color </span>
 						</a>
 						<b class="arrow"></b>
 					</li>

@@ -370,7 +370,7 @@ if ($module == 'dashboard' or $module == '') { ?>
 									<i class="menu-icon fa fa-adjust"></i>
 								</div>
 								<div class="textModule">
-									Add Color
+									One Side Color
 								</div>
 							</a>
 						</div>
@@ -384,7 +384,7 @@ if ($module == 'dashboard' or $module == '') { ?>
 									<i class="menu-icon fa fa-adjust"></i>
 								</div>
 								<div class="textModule">
-									Add 2ndColor
+									Two Side Color
 								</div>
 							</a>
 						</div>
@@ -398,7 +398,7 @@ if ($module == 'dashboard' or $module == '') { ?>
 									<i class="menu-icon fa fa-adjust"></i>
 								</div>
 								<div class="textModule">
-									Add BothColor
+									Both Side Color
 								</div>
 							</a>
 						</div>

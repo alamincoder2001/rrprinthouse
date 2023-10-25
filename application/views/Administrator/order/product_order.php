@@ -154,7 +154,7 @@
 								</div>
 
 								<div class="form-group">
-									<label class="col-xs-3 control-label no-padding-right"> Product </label>
+									<label class="col-xs-3 control-label no-padding"> Product </label>
 									<div class="col-xs-8">
 										<v-select v-bind:options="products" v-model="selectedProduct" label="display_text" id="product" v-on:input="productOnChange"></v-select>
 									</div>
@@ -164,66 +164,66 @@
 								</div>
 
 								<div class="form-group" style="display: none;" :style="{display: sales.isService == 'true' ? '' : 'none' }">
-									<label class="col-xs-3 control-label no-padding-right"> 1Side Color </label>
+									<label class="col-xs-3 control-label no-padding"> One Side </label>
 									<div class="col-xs-9">
 										<v-select :options="colors" id="color" v-model="selectedColor" label="color_name" @input="colorOnChange('color')"></v-select>
 									</div>
 								</div>
 								<div class="form-group" style="display: none;" :style="{display: sales.isService == 'true' ? '' : 'none' }">
-									<label class="col-xs-3 control-label no-padding-right"> 2Side Color </label>
+									<label class="col-xs-3 control-label no-padding"> Two Side </label>
 									<div class="col-xs-9">
 										<v-select :options="othercolors" id="othercolor" v-model="selectedOtherColor" label="color_name" @input="colorOnChange('othercolor')"></v-select>
 									</div>
 								</div>
 								<div class="form-group" style="display: none;" :style="{display: sales.isService == 'true' ? '' : 'none' }">
-									<label class="col-xs-3 control-label no-padding-right"> Both Color </label>
+									<label class="col-xs-3 control-label no-padding"> Both Side </label>
 									<div class="col-xs-9">
 										<v-select :options="bothcolors" id="bothcolor" v-model="selectedBothColor" label="color_name" @input="colorOnChange('bothcolor')"></v-select>
 									</div>
 								</div>
 
 								<div class="form-group" style="display: none;" :style="{display: sales.isService == 'true' ? '' : 'none' }">
-									<label class="col-xs-3 control-label no-padding-right"> Size </label>
+									<label class="col-xs-3 control-label no-padding"> Size </label>
 									<div class="col-xs-9">
 										<input type="text" id="size" v-model="selectedProduct.size_name" placeholder="Size" class="form-control" readonly />
 									</div>
 								</div>
 
 								<div class="form-group" style="display: none;">
-									<label class="col-xs-3 control-label no-padding-right"> Brand </label>
+									<label class="col-xs-3 control-label no-padding"> Brand </label>
 									<div class="col-xs-9">
 										<input type="text" id="brand" placeholder="Group" class="form-control" />
 									</div>
 								</div>
 
 								<div class="form-group">
-									<label class="col-xs-3 control-label no-padding-right"> Sale Rate </label>
+									<label class="col-xs-3 control-label no-padding"> Sale Rate </label>
 									<div class="col-xs-4">
 										<input type="number" id="salesRate" placeholder="Rate" step="0.01" class="form-control" v-model="selectedProduct.Product_SellingPrice" v-on:input="productTotal" />
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-xs-1 control-label no-padding-right"> Qty </label>
+									<label class="col-xs-1 control-label no-padding"> Qty </label>
 									<div class="col-xs-4">
 										<input type="number" step="0.01" id="quantity" placeholder="Qty" class="form-control" ref="quantity" v-model="selectedProduct.quantity" v-on:input="productTotal" autocomplete="off" required />
 									</div>
 								</div>
 
 								<div class="form-group" style="display:none;">
-									<label class="col-xs-3 control-label no-padding-right"> Discount</label>
+									<label class="col-xs-3 control-label no-padding"> Discount</label>
 									<div class="col-xs-9">
 										<span>(%)</span>
 										<input type="text" id="productDiscount" placeholder="Discount" class="form-control" style="display: inline-block; width: 90%" />
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-xs-3 control-label no-padding-right"> Description </label>
+									<label class="col-xs-3 control-label no-padding"> Description </label>
 									<div class="col-xs-9">
 										<input type="text" id="note" placeholder="Description" class="form-control" v-model="selectedProduct.note" />
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-xs-3 control-label no-padding-right"> Amount </label>
+									<label class="col-xs-3 control-label no-padding"> Amount </label>
 									<div class="col-xs-9">
 										<input type="text" id="productTotal" placeholder="Amount" class="form-control" v-model="selectedProduct.total" readonly />
 									</div>
