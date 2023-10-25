@@ -159,19 +159,19 @@
 								</div>
 
 								<div class="form-group" style="display: none;" :style="{display: sales.isService == 'true' ? '' : 'none' }">
-									<label class="col-xs-3 control-label no-padding-right"> 1<sup>st</sup>Color </label>
+									<label class="col-xs-3 control-label no-padding-right"> 1Side Color </label>
 									<div class="col-xs-9">
 										<v-select :options="colors" id="color" v-model="selectedColor" label="color_name" @input="colorOnChange('color')"></v-select>
 									</div>
 								</div>
 								<div class="form-group" style="display: none;" :style="{display: sales.isService == 'true' ? '' : 'none' }">
-									<label class="col-xs-3 control-label no-padding-right"> 2<sup>st</sup>Color </label>
+									<label class="col-xs-3 control-label no-padding-right"> 2Side Color </label>
 									<div class="col-xs-9">
 										<v-select :options="othercolors" id="othercolor" v-model="selectedOtherColor" label="color_name" @input="colorOnChange('othercolor')"></v-select>
 									</div>
 								</div>
 								<div class="form-group" style="display: none;" :style="{display: sales.isService == 'true' ? '' : 'none' }">
-									<label class="col-xs-3 control-label no-padding-right"> Both Clr </label>
+									<label class="col-xs-3 control-label no-padding-right"> Both Color </label>
 									<div class="col-xs-9">
 										<v-select :options="bothcolors" id="bothcolor" v-model="selectedBothColor" label="color_name" @input="colorOnChange('bothcolor')"></v-select>
 									</div>
