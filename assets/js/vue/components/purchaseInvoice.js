@@ -306,7 +306,7 @@ const purchaseInvoice = Vue.component('purchase-invoice', {
                     <div class="container">
                         <div class="row">
                             <div class="col-xs-12">
-                                <img src="/uploads/rr-invoice-top.png" alt="Logo" style="width: 100%" />
+                                <img src="/uploads/rr-invoice-top.jpeg" alt="Logo" style="width: 100%" />
                             </div>
                         </div>
                     </div>
